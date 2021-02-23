@@ -15,7 +15,8 @@ class AVL{
         // JORGE
         void insert(T x);
         void inorder();
-
+		Nodo<T>* RotacionCompuestaID(Nodo<T>*, Nodo<T>*);
+		Nodo<T>* RotacionCompuestaDI(Nodo<T>*, Nodo<T>*);
     private:
     	Node<T> * root = NULL;
         int n;
@@ -84,5 +85,45 @@ class AVL{
         
         
 };
+
+template <class T>
+Nodo<T>* AVL<T>::RotacionCompuestaID(Nodo<T> * Apunt, Nodo<T>* ApAux1)
+{
+    Nodo<T>* ApAux2;
+    ApAux2 = ApAux1->getHijoDer();
+    Apunt->setHijoIzq(ApAux2->getHijoDer());
+    ApAux2->setHijoDer(Apunt);
+    ApAux1->setHijoDer(ApAux2->getHijoIzq());
+    ApAux2->setHijoIzq(ApAux1);
+    if (ApAux2->getFE() == - 1)
+        Apunt->setFE(1);
+    else
+        Apunt->setFE(0);
+    if (ApAux2->getFE() == 1)
+        ApAux1->setFE(- 1);
+    else
+        ApAux1->setFE(0);
+    return ApAux2;
+}
+
+template <class T>
+Nodo<T>* AVL<T>::RotacionCompuestaDI(Nodo<T> * Apunt, Nodo<T>* ApAux1)
+{
+    Nodo<T>* ApAux2;
+    ApAux2 = ApAux1->getHijoIzq();
+    Apunt->setHijoDer(ApAux2->getHijoIzq());
+    ApAux2->setHijoIzq(Apunt);
+    ApAux1->setHijoIzq(ApAux2->getHijoDer());
+    ApAux2->setHijoDer(ApAux1);
+    if (ApAux2->getFE() == 1)
+        Apunt->setFE(- 1);
+    else
+        Apunt->setFE(0);
+    if (ApAux2->getFE() == - 1)
+        ApAux1->setFE(1);
+    else
+        ApAux1->setFE(0);
+    return ApAux2;
+}
 
 #endif
