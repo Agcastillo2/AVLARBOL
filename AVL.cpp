@@ -62,3 +62,37 @@ void AVL<T>::inorderUtil(Node * head){
     cout<<head->getKey()<<" ";
 	inorderUtil(head->getRight());
 }
+
+template <typename T>
+Node<T>* AVL<T>::insertUtil(Node<T>* head, T x) {
+    if (head == NULL) {
+        n += 1;
+        Node<T>* temp = new Node(x);
+        return temp;
+    }
+    if (x < head->getKey())
+        head->setLeft(insertUtil(head->getLeft(), x));
+    else if (x > head->getKey())
+        head->setRigth(insertUtil(head->getRigth(), x));
+    head->setHeigth(1+max(height(head->getLeft()),height(head->getRigth())))
+    int bal = height(head->getLeft()) - height(head->getRigth());
+    if (bal > 1) {
+        if (x < head->getLeft()->getKey()) {
+            return rightRotation(head);
+        }
+        else {
+            head->setLeft(leftRotation(head->getLeft()));
+            return rightRotation(head);
+        }
+    }
+    else if (bal < -1) {
+        if (x > head->getRigth()->getKey()) {
+            return leftRotation(head);
+        }
+        else {
+            head->setRigth(rightRotation(head->getRigth()));
+            return leftRotation(head);
+        }
+    }
+    return head;
+}

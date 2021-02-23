@@ -56,7 +56,8 @@ class AVL{
         }*/
 
 		//Marco
-        Node<T> * insertUtil(Node<T> * head, T x){
+        Node<T> * insertUtil(Node<T>*,T);
+        /*{
             if(head==NULL){
                 n+=1;
                 Node<T><T> * temp = new Node<T>(x);
@@ -82,7 +83,7 @@ class AVL{
                 }
             }
             return head;
-        }
+        }*/
         
         
 };
