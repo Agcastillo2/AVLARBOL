@@ -25,13 +25,24 @@ void AVL<T>::insert(T x){
 }
 
 template <typename T>
-void inorder(){
+void AVL<T> ::inorder(){
     inorderUtil(root);
     cout<<endl;
 }
 
 template <typename T>
-int height(Node * head){
+int AVL<T> ::height(Node * head){
     if(head==NULL) return 0;
     return head->height;
 }
+
+template <typename T>
+Node<T> * AVL<T>::rightRotation(Node * head){
+    Node * newhead = head->getLeft;
+    head->getLeft = newhead->getRigth;
+    newhead->getRigth = head;
+    head->height = 1+max(height(head->getLeft), height(head->getRigth));
+    newhead->height = 1+max(height(newhead->getLeft), height(newhead->getRigth));
+    return newhead;
+}
+

@@ -23,14 +23,16 @@ class AVL{
         int height(Node * head);
         
         //CRISTIAN 
-        Node<T> * rightRotation(Node * head){
-            Node * newhead = head->left;
-            head->left = newhead->right;
-            newhead->right = head;
-            head->height = 1+max(height(head->left), height(head->right));
-            newhead->height = 1+max(height(newhead->left), height(newhead->right));
-            return newhead;
-        }
+        
+        
+        Node<T> * rightRotation(Node * head);{
+        //    Node * newhead = head->left;
+        //    head->left = newhead->right;
+        //    newhead->right = head;
+        //    head->height = 1+max(height(head->left), height(head->right));
+        //    newhead->height = 1+max(height(newhead->left), height(newhead->right));
+        //    return newhead;
+        //}
 		
 		//JONATHAN FABRICIO
         Node<T> * leftRotation(Node * head){
