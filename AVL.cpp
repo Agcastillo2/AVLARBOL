@@ -1,20 +1,20 @@
 #include "AVL.h"
 
 template <typename T>
-
-Nodo<T> *::AVL getRoot(){
+Nodo<T>* AVL<T>::getRoot(){
 	return root;
 }
 
-int AVL::getN(){
+template <typename T>
+int AVL<T>::getN(){
 	return n;
 }
 template <typename T>
-void AVL:: setRoot(Nodo<T> *root){
+void AVL<T>:: setRoot(Nodo<T> *root){
 	this->root=root;
 	
 }
-
-void AVL:: setN(int n){
-	n=n;
+template <typename T>
+void AVL<T>:: setN(int n){
+	this->n=n;
 }
