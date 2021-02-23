@@ -1,30 +1,66 @@
+/***********************************************************************
+ * Module:  Main.cpp
+ * Author:  ismae
+ * Modified: domingo, 7 de febrero de 2021 22:59:50
+ * Purpose: Main
+ ***********************************************************************/
 #include<iostream>
 #include <iomanip>
+#include <string>
 #include "AVL.h"
+#include "Menu.h"
+//#define _GLIBCXX_USE_CXX11_ABI 0
 
+using namespace std;
 
-int main(){
+int main(int argc, char** argv){
     AVL<int> t;
+    Menu menu;
+    int option = 0, value = 0;
+    string mainMenu[] = { "Ingresar dato","Eliminar","Ver Arbol","Salir" };
     
-    std::cout<<std::right<<std::setw(40)<<"\n<[ ARBOL AVL ]>"<<std::endl;
-    std::cout<<std::right<<std::setw(20)<<" Insertando datos...\n"<<std::endl;
-    t.insert(50);
-    t.insert(24);
-    t.insert(35);
-    t.insert(46);
-    t.insert(57);
-    t.insert(18);
-    t.insert(19);
-    t.insert(119);
-    t.insert(100);
-    t.insert(1);
-    std::cout<<std::left<<std::setw(30)<<" Mostrando en inorder ... \n"<<std::endl;
-    t.inorder();
-    std::cout<<std::endl;
-    /*t.remove(5.7);
-    t.remove(6.8);
-    t.remove(7.9);
-    t.inorder();*/
+    
+    do{
+    	
+    	option = menu.makeMenu("Arbol AVL",mainMenu,4);
+    	
+    	switch (option)
+        {
+        	case 1:
+			{
+				//Insertar
+        		system("cls");
+        		std::cout<<std::right<<std::setw(20)<<" Ingrese un numero entero...\n"<<std::endl;
+        		std::cin>>value;
+        		t.insert(value);
+        		system("pause");
+				break;
+			}
+        	case 2:
+			{
+				//Eliminar
+				system("cls");
+        		std::cout<<std::right<<std::setw(20)<<" Ingrese un numero entero...\n"<<std::endl;
+        		std::cin>>value;
+        		system("pause");
+				break;
+				break;	
+			}
+			case 3:
+			{
+				//Mostrar
+				std::cout<<std::left<<std::setw(30)<<" Mostrando en inorder ... \n"<<std::endl;
+    			t.inorder();
+			
+				break;	
+			}
+			default:
+				break;	
+        }
+    	
+    	
+	} while (option > 0 && option < 4);
+    
     
     return EXIT_SUCCESS;
 }
