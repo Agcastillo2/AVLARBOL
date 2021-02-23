@@ -18,3 +18,20 @@ template <typename T>
 void AVL<T>:: setN(int n){
 	this->n=n;
 }
+
+template <typename T>
+void AVL<T>::insert(T x){
+    root=insertUtil(root, x);
+}
+
+template <typename T>
+void inorder(){
+    inorderUtil(root);
+    cout<<endl;
+}
+
+template <typename T>
+int height(Node * head){
+    if(head==NULL) return 0;
+    return head->height;
+}

@@ -11,23 +11,16 @@ class AVL{
         Node<T> getRoot();
         int getN();
         void setRoot(Node<T>* root);
+        
         // JORGE
-        void insert(T x){
-            root=insertUtil(root, x);
-        }
-        //JORGE
-        void inorder(){
-            inorderUtil(root);
-            cout<<endl;
-        }
+        void insert(T x);
+        void inorder();
+
     private:
     	Node<T> * root = NULL;
         int n;
     	// JORGE
-        int height(Node * head){
-            if(head==NULL) return 0;
-            return head->height;
-        }
+        int height(Node * head);
         
         //CRISTIAN 
         Node<T> * rightRotation(Node * head){
