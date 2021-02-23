@@ -7,9 +7,10 @@ class AVL{
     public:
     	
         // CREAR GET Y SET DE ROOT Y N -> CAMILA
-        Node<T> * root = NULL;
-        int n;
         
+        Node<T> getRoot();
+        int getN();
+        void setRoot(Node<T>* root);
         // JORGE
         void insert(T x){
             root=insertUtil(root, x);
@@ -20,6 +21,8 @@ class AVL{
             cout<<endl;
         }
     private:
+    	Node<T> * root = NULL;
+        int n;
     	// JORGE
         int height(Node * head){
             if(head==NULL) return 0;
