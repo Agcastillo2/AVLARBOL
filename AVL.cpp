@@ -104,4 +104,54 @@ Node<T>* AVL<T>::insertUtil(Node<T>* head, T x)
     return head;
 }
 
-template class AVL<int>;
+
+template <typename T>
+
+Node<T>* AVL <T> :: removeUtil(Node<T>* head, T x) {
+    if (head == NULL) return NULL;
+    if (x < head->key) {
+        head->setLeft() = removeUtil(head->getLeft(), x);
+    }
+    else if (x > head->key) {
+        head->setRight() = removeUtil(head->getRight(), x);
+    }
+    else {
+        Node<T>* r = head->getRight();
+        if (head->getRight() == NULL) {
+            Node<T>* l = head->getLeft();
+            delete(head);
+            head = l;
+        }
+        else if (head->getLeft() == NULL) {
+            delete(head);
+            head = r;
+        }
+        else {
+            while (r->getLeft() != NULL) r = r->getLeft();
+            head->setKey() = r->getKey();https:
+            head->setRight() = removeUtil(head->getRight(), r->getKey());///..
+        }
+    }
+    if (head == NULL) return head;
+    head->setHeight() = 1 + std::max(setHeight(head->getLeft()), setHeight(head->getLight));
+    int bal = setHeight(head->getLeft()) - setHeight(head->getRight());
+    if (bal > 1) {
+        if (x > head->getLeft()->getKey()) {
+            return rightRotation(head);
+        }
+        else {
+            head->setLeft() = leftRotation(head->getLeft);
+            return rightRotation(head);
+        }
+    }
+    else if (bal < -1) {
+        if (x < head->getRight()->getKey()) {
+            return leftRotation(head);
+        }
+        else {
+            head->setRight() = rightRotation(head->getRight());
+            return leftRotation(head);
+        }
+    }
+    return head;
+}
