@@ -45,6 +45,15 @@ Node<T> * AVL<T>::rightRotation(Node * head){
     newhead->getHeight() = 1+max(setHeight(newhead->getLeft()), setHeight(newhead->getRigth()));
     return newhead;
 }
+template<typename T>
+Node<T> * leftRotation(Node * head){
+            Node * newhead = head->right;
+            head->right = newhead->left;
+            newhead->left = head;
+            head->height = 1+max(height(head->left), height(head->right));
+            newhead->height = 1+max(height(newhead->left), height(newhead->right));
+            return newhead;
+}
 
 template <typename T>
 void AVL<T>::inorderUtil(Node * head){

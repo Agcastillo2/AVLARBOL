@@ -36,14 +36,15 @@ class AVL{
         //}
 		
 		//JONATHAN FABRICIO
-        Node<T> * leftRotation(Node * head){
+        Node<T> * leftRotation(Node * head);
+		/*{
             Node * newhead = head->right;
             head->right = newhead->left;
             newhead->left = head;
             head->height = 1+max(height(head->left), height(head->right));
             newhead->height = 1+max(height(newhead->left), height(newhead->right));
             return newhead;
-        }
+        }*/
 	
 		//DENNIS
         void inorderUtil(Node * head);
