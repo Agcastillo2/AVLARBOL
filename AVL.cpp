@@ -31,18 +31,25 @@ void AVL<T> ::inorder(){
 }
 
 template <typename T>
-int AVL<T> ::height(Node * head){
+int AVL<T>::height(Node * head){
     if(head==NULL) return 0;
-    return head->height;
+    return head->getHeight();
 }
 
 template <typename T>
 Node<T> * AVL<T>::rightRotation(Node * head){
-    Node * newhead = head->getLeft;
-    head->getLeft = newhead->getRigth;
-    newhead->getRigth = head;
-    head->height = 1+max(height(head->getLeft), height(head->getRigth));
-    newhead->height = 1+max(height(newhead->getLeft), height(newhead->getRigth));
+    Node * newhead = head->getLeft();
+    head->getLeft() = newhead->getRigth();
+    newhead->getRigth() = head;
+    head->getHeight() = 1+max(setHeight(head->getLeft()), setHeight(head->getRigth()));
+    newhead->getHeight() = 1+max(setHeight(newhead->getLeft()), setHeight(newhead->getRigth()));
     return newhead;
 }
 
+template <typename T>
+void AVL<T>::inorderUtil(Node * head){
+    if(head==NULL) return ;
+    inorderUtil(head->getLeft());
+    cout<<head->getKey()<<" ";
+	inorderUtil(head->getRight());
+}

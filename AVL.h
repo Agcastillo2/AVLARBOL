@@ -25,8 +25,8 @@ class AVL{
         //CRISTIAN 
         
         
-        Node<T> * rightRotation(Node * head);{
-        //    Node * newhead = head->left;
+        Node<T> * rightRotation(Node * head);
+        //    {Node * newhead = head->left;
         //    head->left = newhead->right;
         //    newhead->right = head;
         //    head->height = 1+max(height(head->left), height(head->right));
@@ -45,12 +45,13 @@ class AVL{
         }
 	
 		//DENNIS
-        void inorderUtil(Node * head){
+        void inorderUtil(Node * head);
+		/*{
             if(head==NULL) return ;
             inorderUtil(head->left);
             cout<<head->key<<" ";
             inorderUtil(head->right);
-        }
+        }*/
 
 		//Marco
         Node<T> * insertUtil(Node<T> * head, T x){
