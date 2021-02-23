@@ -1,6 +1,7 @@
 #include<iostream>
 #include "AVL.h"
-using namespace std;
+
+
 
 
 int main(){
@@ -17,4 +18,6 @@ int main(){
     t.remove(6.8);
     t.remove(7.9);
     t.inorder();*/
+    
+    return EXIT_SUCCESS;
 }

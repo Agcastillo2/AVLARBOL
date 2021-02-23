@@ -5,21 +5,28 @@
 template <typename T>
 class AVL{
     public:
-        
+    	
+        // CREAR GET Y SET DE ROOT Y N -> CAMILA
         Node<T> * root = NULL;
         int n;
+        
+        // JORGE
         void insert(T x){
             root=insertUtil(root, x);
         }
+        //JORGE
         void inorder(){
             inorderUtil(root);
             cout<<endl;
         }
     private:
+    	// JORGE
         int height(Node * head){
             if(head==NULL) return 0;
             return head->height;
         }
+        
+        //CRISTIAN 
         Node<T> * rightRotation(Node * head){
             Node * newhead = head->left;
             head->left = newhead->right;
@@ -28,7 +35,8 @@ class AVL{
             newhead->height = 1+max(height(newhead->left), height(newhead->right));
             return newhead;
         }
-
+		
+		//JONATHAN FABRICIO
         Node<T> * leftRotation(Node * head){
             Node * newhead = head->right;
             head->right = newhead->left;
@@ -37,7 +45,8 @@ class AVL{
             newhead->height = 1+max(height(newhead->left), height(newhead->right));
             return newhead;
         }
-
+	
+		//DENNIS
         void inorderUtil(Node * head){
             if(head==NULL) return ;
             inorderUtil(head->left);
@@ -45,6 +54,7 @@ class AVL{
             inorderUtil(head->right);
         }
 
+		//Marco
         Node<T> * insertUtil(Node<T> * head, T x){
             if(head==NULL){
                 n+=1;
