@@ -1,7 +1,8 @@
 #include "Node.h"
+#include <iostream>
 
 template<class T>
-Node<T>::Node<T>(T k)
+Node<T>::Node(T k)
 {
     this->height = 1;
     this->key = k;
@@ -57,4 +58,4 @@ void Node<T>::setRigth(Node<T> * R)
 }
 
 
-//template class Node<int>; 
+template class Node<int>; 
