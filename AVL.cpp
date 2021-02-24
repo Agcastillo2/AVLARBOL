@@ -31,6 +31,11 @@ void AVL<T> ::inorder(){
 }
 
 template <typename T>
+void AVL<T> ::remove(T x){
+    root=removeUtil(root, x);
+}
+
+template <typename T>
 int AVL<T>::height(Node<T> * head)
 {
     if(head==NULL) return 0;
@@ -98,6 +103,58 @@ Node<T>* AVL<T>::insertUtil(Node<T>* head, T x)
         }
         else {
             head->setRigth(rightRotation(head->getRigth()));
+            return leftRotation(head);
+        }
+    }
+    return head;
+}
+
+
+template <typename T>
+
+Node<T>* AVL <T> :: removeUtil(Node<T>* head, T x) {
+    if (head == NULL) return NULL;
+    if (x < head->getKey() ) {
+        head->setLeft( removeUtil(head->getLeft(), x) ); //= removeUtil(head->getLeft(), x);
+    }
+    else if (x > head->getKey() ) {
+        head->setRigth( removeUtil(head->getRigth(), x) );// = removeUtil(head->getRight(), x);
+    }
+    else {
+        Node<T>* r = head->getRigth();
+        if (head->getRigth() == NULL) {
+            Node<T>* l = head->getLeft();
+            delete(head);
+            head = l;
+        }
+        else if (head->getLeft() == NULL) {
+            delete(head);
+            head = r;
+        }
+        else {
+            while (r->getLeft() != NULL) r = r->getLeft();
+            head->setKey( r->getKey() );// = r->getKey();https:
+            head->setRigth( removeUtil(head->getRigth(), r->getKey()) );// = removeUtil(head->getRight(), r->getKey());///..
+        }
+    }
+    if (head == NULL) return head;
+    head->setHeigth(1 + std::max(height(head->getLeft()), height(head->getRigth() ))); //= 1 + std::max(setHeight(head->getLeft()), setHeight(head->getLight));
+    int bal = height(head->getLeft()) - height(head->getRigth());
+    if (bal > 1) {
+        if (x > head->getLeft()->getKey()) {
+            return rightRotation(head);
+        }
+        else {
+            head->setLeft( leftRotation(head->getLeft()  ) ); //= ;
+            return rightRotation(head);
+        }
+    }
+    else if (bal < -1) {
+        if (x < head->getRigth()->getKey()) {
+            return leftRotation(head);
+        }
+        else {
+            head->setRigth( rightRotation(head->getRigth()) );// = rightRotation(head->getRight());
             return leftRotation(head);
         }
     }

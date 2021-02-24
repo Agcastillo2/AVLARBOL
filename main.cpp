@@ -43,7 +43,7 @@ int main(int argc, char** argv){
 				system("cls");
         		std::cout<<std::right<<std::setw(20)<<" Ingrese un numero entero...\n"<<std::endl;
         		std::cin>>value;
-        		
+        		t.remove(value);
         		system("pause");
 				break;	
 			}
@@ -53,7 +53,7 @@ int main(int argc, char** argv){
 				system("cls");
 				
 				std::cout<<ansi::reset<<std::left<<std::setw(40)<<" \nMostrando en inorder ... \n"<<std::endl;
-				
+		
     			t.inorder();
 				system("pause");
 				break;	

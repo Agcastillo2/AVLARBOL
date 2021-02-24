@@ -16,6 +16,7 @@ class AVL{
         void setRoot(Node<T>* root);
         void insert(T x);
         void inorder();
+        void remove(T x);
 		Node<T>* RotacionCompuestaID(Node<T>*, Node<T>*);
 		Node<T>* RotacionCompuestaDI(Node<T>*, Node<T>*);
         Node<T>* removeUtil(Node<T>* head, T x);
