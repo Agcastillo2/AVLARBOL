@@ -14,7 +14,7 @@
 class Menu
 {
 public:
-   int makeMenu(std::string message, std::string* options, int index);
+   int makeMenu(std::string message, std::string[] , int index);
 
 private:
 	Console screen;

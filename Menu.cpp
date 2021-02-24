@@ -13,7 +13,7 @@
 using namespace std;
 
 
-int Menu::makeMenu(std::string message, std::string* options, int index)
+int Menu::makeMenu(std::string message, std::string options[], int index)
 {
   	
   	

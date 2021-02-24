@@ -9,6 +9,7 @@
 #include <string>
 #include "AVL.h"
 #include "Menu.h"
+#include "Color.h"
 //#define _GLIBCXX_USE_CXX11_ABI 0
 
 using namespace std;
@@ -22,7 +23,7 @@ int main(int argc, char** argv){
     
     do{
     	
-    	option = menu.makeMenu("Arbol AVL",mainMenu,4);
+    	option = menu.makeMenu("ArbolesAVL",mainMenu,4);
     	
     	switch (option)
         {
@@ -30,7 +31,7 @@ int main(int argc, char** argv){
 			{
 				//Insertar
         		system("cls");
-        		std::cout<<std::right<<std::setw(20)<<" Ingrese un numero entero...\n"<<std::endl;
+        		std::cout<<ansi::reset<<"\n\n"<<std::right<<std::setw(40)<<" Ingrese un numero entero: ";
         		std::cin>>value;
         		t.insert(value);
         		system("pause");
@@ -42,16 +43,19 @@ int main(int argc, char** argv){
 				system("cls");
         		std::cout<<std::right<<std::setw(20)<<" Ingrese un numero entero...\n"<<std::endl;
         		std::cin>>value;
+        		
         		system("pause");
-				break;
 				break;	
 			}
 			case 3:
 			{
 				//Mostrar
-				std::cout<<std::left<<std::setw(30)<<" Mostrando en inorder ... \n"<<std::endl;
+				system("cls");
+				
+				std::cout<<ansi::reset<<std::left<<std::setw(40)<<" \nMostrando en inorder ... \n"<<std::endl;
+				
     			t.inorder();
-			
+				system("pause");
 				break;	
 			}
 			default:
